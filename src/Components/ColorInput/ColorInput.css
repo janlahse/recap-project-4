@@ -1,0 +1,12 @@
+input {
+  margin: 5px 0 15px 0;
+}
+.color-input-container {
+  display: flex;
+}
+.color-text-input {
+  flex-grow: 1;
+}
+.color-picker {
+  height: auto;
+}
