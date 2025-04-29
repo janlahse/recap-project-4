@@ -1,15 +1,15 @@
 import "./ColorForm.css";
 import { ColorInput } from "../ColorInput/ColorInput";
 
-export function ColorForm() {
+export function ColorForm({ onHandleSubmit }) {
   return (
-    <form>
+    <form onSubmit={onHandleSubmit}>
       <label htmlFor="role">Role:</label>
-      <input id="role" name="role"></input>
-      <ColorInput labelName="Hex-Code:" id="hex-color" defaultColor="#224477" />
+      <input id="role" name="role" defaultValue="ColorName"></input>
+      <ColorInput labelName="Hex-Code:" id="hex" defaultColor="#224477" />
       <ColorInput
         labelName="Contrast Text:"
-        id="contrast-text"
+        id="contrast"
         defaultColor="#ffffff"
       />
       <button type="submit">Add Color</button>
