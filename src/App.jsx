@@ -22,6 +22,7 @@ function App() {
       ...allColors,
     ]);
   }
+
   return (
     <>
       <h1>Theme Creator</h1>
