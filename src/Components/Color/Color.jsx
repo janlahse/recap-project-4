@@ -3,7 +3,7 @@ import { DeleteButton } from "../DeleteButton/DeleteButton";
 import { ColorForm } from "../ColorForm/ColorForm";
 import "./Color.css";
 
-export default function Color({ color, onDelete, onEdit }) {
+export default function Color({ color, onDelete, onHandleEdit }) {
   const [editMode, setEditMode] = useState(false);
 
   function handleCancle() {
@@ -27,7 +27,14 @@ export default function Color({ color, onDelete, onEdit }) {
           <DeleteButton onDelete={() => onDelete(color.id)} />
         </>
       ) : (
-        <ColorForm onHandleSubmit={onEdit} onCancle={handleCancle} />
+        <ColorForm
+          onCancle={handleCancle}
+          onHandleSubmit={(event) => {
+            onHandleEdit(event);
+            handleCancle();
+          }}
+          color={color}
+        />
       )}
     </div>
   );

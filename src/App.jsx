@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   const [allColors, setAllColors] = useState(initialColors);
 
-  function handleSubmit(event) {
+  function handleAdd(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
@@ -27,19 +27,35 @@ function App() {
     setAllColors(allColors.filter((color) => color.id !== id));
   }
 
-  function handleEdit() {}
+  function handleEdit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    setAllColors(
+      allColors.map((color) => {
+        return color.id == data.id
+          ? {
+              id: data.id,
+              role: data.role,
+              hex: data.hex,
+              contrastText: data.contrast,
+            }
+          : color;
+      })
+    );
+  }
 
   return (
     <>
       <h1>Theme Creator</h1>
-      <ColorForm onHandleSubmit={handleSubmit} mode="add" />
+      <ColorForm onHandleSubmit={handleAdd} />
       {allColors.map((color) => {
         return (
           <Color
             key={color.id}
             color={color}
             onDelete={handleDelete}
-            onEdit={handleEdit}
+            onHandleEdit={handleEdit}
           />
         );
       })}
