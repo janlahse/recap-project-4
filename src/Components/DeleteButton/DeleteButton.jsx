@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./DeleteButton.css";
 
-export function DeleteButton({ id }) {
+export function DeleteButton({ onDelete }) {
   const [confirm, setConfirm] = useState(false);
 
   function handleConfirm() {
     if (confirm === false) setConfirm(true);
-    if (confirm === true) console.log(id);
+    if (confirm === true) onDelete();
   }
 
   return (
