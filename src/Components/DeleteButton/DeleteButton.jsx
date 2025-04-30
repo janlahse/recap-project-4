@@ -14,10 +14,10 @@ export function DeleteButton({ onDelete }) {
       {confirm === true && (
         <>
           <p className="color-card-highlight">Really delete?</p>
-          <button onClick={() => setConfirm(false)}>CANCEL</button>
+          <button onClick={() => setConfirm(false)}>Cancel</button>
         </>
       )}
-      <button onClick={handleConfirm}>DELETE</button>
+      <button onClick={handleConfirm}>Delete</button>
     </>
   );
 }

@@ -49,7 +49,7 @@ function App() {
 
   return (
     <>
-      <h1>Theme Creator</h1>
+      <h1>Color Theme Creator</h1>
       <ColorForm onHandleSubmit={handleAdd} />
       {allColors.map((color) => {
         return (
