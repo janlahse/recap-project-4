@@ -27,12 +27,21 @@ function App() {
     setAllColors(allColors.filter((color) => color.id !== id));
   }
 
+  function handleEdit() {}
+
   return (
     <>
       <h1>Theme Creator</h1>
-      <ColorForm onHandleSubmit={handleSubmit} />
+      <ColorForm onHandleSubmit={handleSubmit} mode="add" />
       {allColors.map((color) => {
-        return <Color key={color.id} color={color} onDelete={handleDelete} />;
+        return (
+          <Color
+            key={color.id}
+            color={color}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
+          />
+        );
       })}
       {allColors.length == 0 && (
         <p className="empty-theme-text">
