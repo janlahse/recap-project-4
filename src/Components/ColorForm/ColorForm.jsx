@@ -30,8 +30,8 @@ export function ColorForm({ onHandleSubmit, onCancle, color }) {
         <>
           <input type="hidden" name="id" value={color.id} />
           <div className="update-buttons-container">
-            <button onClick={onCancle}>CANCEL</button>
-            <button type="submit">UPDATE COLOR</button>
+            <button onClick={onCancle}>Cancel</button>
+            <button type="submit">Update Color</button>
           </div>
         </>
       )}
