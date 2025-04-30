@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   const [allColors, setAllColors] = useState(initialColors);
 
-  function handleSubmit(event) {
+  function handleAdd(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
@@ -27,12 +27,37 @@ function App() {
     setAllColors(allColors.filter((color) => color.id !== id));
   }
 
+  function handleEdit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    setAllColors(
+      allColors.map((color) => {
+        return color.id == data.id
+          ? {
+              id: data.id,
+              role: data.role,
+              hex: data.hex,
+              contrastText: data.contrast,
+            }
+          : color;
+      })
+    );
+  }
+
   return (
     <>
       <h1>Theme Creator</h1>
-      <ColorForm onHandleSubmit={handleSubmit} />
+      <ColorForm onHandleSubmit={handleAdd} />
       {allColors.map((color) => {
-        return <Color key={color.id} color={color} onDelete={handleDelete} />;
+        return (
+          <Color
+            key={color.id}
+            color={color}
+            onDelete={handleDelete}
+            onHandleEdit={handleEdit}
+          />
+        );
       })}
       {allColors.length == 0 && (
         <p className="empty-theme-text">

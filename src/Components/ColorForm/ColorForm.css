@@ -8,3 +8,9 @@ form {
 input {
   margin: 5px 0 15px 0;
 }
+.update-buttons-container {
+  display: flex;
+}
+button {
+  flex-grow: 1;
+}
