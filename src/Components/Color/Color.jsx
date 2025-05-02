@@ -3,6 +3,7 @@ import { DeleteButton } from "../DeleteButton/DeleteButton";
 import { ColorForm } from "../ColorForm/ColorForm";
 import "./Color.css";
 import { CopyToClipboardButton } from "../CopyToClipboardButton/CopyToClipboardButton";
+import { CheckContrastText } from "../CheckContrastText/CheckContrastText";
 
 export default function Color({ color, onDelete, onHandleEdit }) {
   const [editMode, setEditMode] = useState(false);
@@ -25,6 +26,8 @@ export default function Color({ color, onDelete, onHandleEdit }) {
       </div>
       <h4>{color.role}</h4>
       <p>Contrast: {color.contrastText}</p>
+      <CheckContrastText color={color} />
+      <br />
       {editMode === false ? (
         <>
           <button onClick={() => setEditMode(true)}>Edit</button>

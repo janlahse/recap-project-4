@@ -1,0 +1,18 @@
+.contrast-checker-text {
+  display: inline-block;
+  color: black;
+  background-color: white;
+  margin: 5px 0 10px 0;
+}
+
+.contrast-checker-text__good {
+  background-color: rgb(80, 240, 44);
+}
+
+.contrast-checker-text__mediocre {
+  background-color: rgb(255, 183, 0);
+}
+
+.contrast-checker-text__bad {
+  background-color: rgb(254, 55, 55);
+}
